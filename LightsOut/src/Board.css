@@ -1,3 +1,94 @@
 .Board{
     margin:0 auto;
+    border-radius: 3px;
+    box-shadow: 0 0 15px #fff, -5px 0 5px #f0f, 10px 0 10px purple;
 }
+table tr:first-child td:first-child {
+  border-radius: 3px 0 0 0 !important;
+}
+table tr:first-child td:last-child {
+  border-radius: 0 3px 0 0 !important;
+}
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 3px !important;
+}
+table tr:last-child td:last-child {
+  border-radius: 0 0 3px 0 !important;
+}
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+.Board-title {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.neon-orange {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 80px;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+  animation: neon-orange 1s ease infinite;
+  -moz-animation: neon-orange 1s ease infinite;
+  -webkit-animation: neon-orange 1s ease infinite;
+}
+
+.neon-blue {
+  font-family: neon;
+  color: purple;
+  font-size: 80px;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw violet;
+  animation: neon-blue 2s linear infinite;
+  -moz-animation: neon-blue 2s linear infinite;
+  -webkit-animation: neon-blue 2s linear infinite;
+  -o-animation: neon-blue 2s linear infinite;
+}
+.winner{
+  display:flex;
+  flex-direction: column;
+}
+.winner>button{
+  width:max-content;
+  padding:2% 5%;
+  margin:10% auto;
+  background:white;
+  color:black;
+  border:none;
+  outline:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.winner>button:active{
+  transform:scale(0.9)
+}
+.winner>div>.neon-orange,.winner>div>.neon-blue{
+  font-size:120px;
+}
+@keyframes neon-orange {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+@keyframes neon-blue {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw purple, 0 0 3vw purple, 0 0 10vw purple, 0 0 10vw purple, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: purple;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #430F35, 0 0 1.5vw #430F35, 0 0 5vw #430F35, 0 0 5vw #430F35, 0 0 .2vw #430F35, .5vw .5vw .1vw #0A3940;
+    color: rgb(185, 7, 185);
+  }
+}
+

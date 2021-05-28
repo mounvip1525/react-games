@@ -11,9 +11,16 @@ export default class Board extends Component {
     constructor(props){
         super(props)
         this.state = {
-            hasWon:false,
+            hasWon:true,
             board:this.createBoard()
         }
+        this.reset=this.reset.bind(this);
+    }
+    reset(){
+        this.setState({
+            hasWon:false,
+            board:this.createBoard()
+        })
     }
     createBoard(){
         let board = [];
@@ -49,7 +56,17 @@ export default class Board extends Component {
     }
     render() {
         if(this.state.hasWon){
-            return <h1>You Win</h1>
+            return (
+                <div className='Board-title'>
+                    <div className="winner">
+                        <div>
+                            <span className='neon-orange'>YOU</span>
+                            <span className='neon-blue'>WIN</span>
+                        </div>
+                        <button onClick={this.reset}>Play Again!</button>
+                    </div>
+                </div>
+            )
         }
         let tableBody = [];
         for(let y=0; y < this.props.nRows; y++){
@@ -65,6 +82,10 @@ export default class Board extends Component {
         }
         return (
             <div>
+                <div className='Board-title'>
+                    <div className='neon-orange'>Lights</div>
+                    <div className='neon-blue'>Out</div>
+                </div>
                 <table className="Board">
                     <tbody>
                         {tableBody}

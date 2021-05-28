@@ -49,6 +49,7 @@ export default class Hangman extends Component {
         return (
             <div className="Hangman">
                 <img src={this.props.images[this.state.nWrong]} />
+                <h1>Let&#39;s play a game of Hangman</h1>
                 <p className='Hangman-word'>{this.guessedWord()}</p>
                 <p className='Hangman-btns'>{this.generateBtns()}</p>
             </div>

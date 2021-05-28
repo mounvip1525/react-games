@@ -4,8 +4,8 @@
     align-items: center;
 }
 .Hangman img{
-    height:20em;
-    width:20em;
+    height:18em;
+    width:18em;
     border:2px solid grey;
     margin-top:-0.5%;
 }
@@ -51,4 +51,8 @@
     background: rgb(48, 3, 48);
     color: #eeeeee;
     box-shadow: 0 6px rgb(87, 7, 87);
+}
+#reset{
+    width:auto;
+    margin:0% auto 5%;
 }

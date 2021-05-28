@@ -36,15 +36,30 @@ export default class Board extends Component {
                 board[y][x] = !board[y][x];
             }
         }
-        // this.setState({board,hasWon});
+
+        flipCell(y,x); //Flip itself
+        flipCell(y+1,x); //Flip Above
+        flipCell(y-1,x); //Flip Below
+        flipCell(y,x+1); //Flip Right
+        flipCell(y,x-1); //Flip Left
+
+        let hasWon = board.every(row => row.every(cell => !cell));
+
+        this.setState({board:board,hasWon:hasWon});
     }
     render() {
+        if(this.state.hasWon){
+            return <h1>You Win</h1>
+        }
         let tableBody = [];
         for(let y=0; y < this.props.nRows; y++){
             let row = [];
             for(let x=0; x < this.props.nCols ; x++){
                 let coord = `${y}-${x}`;
-                row.push(<Cell key={coord} isLit={this.state.board[y][x]} />);
+                row.push(<Cell key={coord} 
+                               isLit={this.state.board[y][x]} 
+                               flipCellsAroundMe={()=>this.flipCellsAround(coord)}
+                        />);
             }
             tableBody.push(<tr key={y}>{row}</tr>);
         }

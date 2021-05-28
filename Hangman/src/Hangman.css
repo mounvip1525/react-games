@@ -55,4 +55,9 @@
 #reset{
     width:auto;
     margin:0% auto 5%;
+    background: #9c27b0;
+    box-shadow: #7b1fa2;
+}
+#reset:hover{
+    background:rgb(48, 3, 48);
 }

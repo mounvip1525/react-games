@@ -113,7 +113,7 @@
   const fullHouse = new FullHouse({ score : 25 });
   
   // small/large straights score as 30/40
-  const smallStraight = new smallStraight({ score : 30 });
+  const smallStraight = new SmallStraight({ score : 30 });
   const largeStraight = new LargeStraight({ score: 40 });
   
   // yahtzee scores as 50

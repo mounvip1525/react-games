@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ScoreTable extends Component {
+export default class RuleRow extends Component {
     render() {
         return (
             <div>

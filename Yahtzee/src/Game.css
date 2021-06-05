@@ -1,8 +1,8 @@
 .Game {
-    width: 30%;
+    width: 40vw;
     background: white;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
-    margin: 0 30%;
+    margin: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +28,7 @@
   }
   
   .Game-reroll {
-    font-size: 2em;
+    font-size: 1.5em;
     color: white;
     font-weight: 100;
     transition: 0.5s;

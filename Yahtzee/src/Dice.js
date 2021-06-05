@@ -12,7 +12,8 @@ export default class Dice extends Component {
                         val={id}
                         locked={this.props.locked[idx]}
                         idx={idx}
-                        key={idx} />
+                        key={idx} 
+                        disabled={this.props.disabled} />
                 )}
             </div>
         )

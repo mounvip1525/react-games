@@ -76,6 +76,7 @@ export default class Game extends Component {
                             dice = {this.state.dice}
                             locked = {this.state.locked}
                             handleClick = {this.toggleLocked}
+                            disabled= {this.state.disabled === 0}
                         />
                         <div className='Game-button-wrapper'>
                         <button

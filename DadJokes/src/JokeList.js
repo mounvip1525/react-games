@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import './JokeList.css';
-
+import Joke from './Joke';
 export default class JokeList extends Component {
     static defaultProps = {
         numOfJokesToGet: 10
@@ -20,7 +20,7 @@ export default class JokeList extends Component {
                     Accept:"application/json"
                 }
             });
-            jokes.push(res.data.joke)
+            jokes.push({text:res.data.joke,votes:0})
         }
         console.log(jokes);
         this.setState({ jokes : jokes })
@@ -37,7 +37,7 @@ export default class JokeList extends Component {
                 </div>
                 <div className="JokeList-jokes">
                     {this.state.jokes.map(joke=>(
-                        <div>{joke}</div>
+                        <Joke text={joke.text} votes={joke.votes} />
                     ))}
                 </div>
             </div>

@@ -13,7 +13,9 @@ export default class Joke extends Component {
                 <div className="Joke-text">
                     {this.props.text}
                 </div>
-                
+                <div className="Joke-smiley">
+                    <i class="em em-zany_face" aria-role="presentation" aria-label="GRINNING FACE WITH ONE LARGE AND ONE SMALL EYE"></i>
+                </div>
             </div>
         )
     }

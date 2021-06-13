@@ -14,27 +14,38 @@ export default class JokeList extends Component {
             jokes : JSON.parse(window.localStorage.getItem("jokes") || "[]" ),
             loading:false
         }
+        this.seenJokes = new Set(this.state.jokes.map(joke=>joke.text));
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount(){
         if(this.state.jokes.length === 0) this.getJokes();
     }
     async getJokes(){
-        let jokes = [];
-        while(jokes.length < this.props.numOfJokesToGet) {
-            let res = await axios.get("https://icanhazdadjoke.com/",{
-                headers:{
-                    Accept:"application/json"
+        try{
+            let jokes = [];
+            while(jokes.length < this.props.numOfJokesToGet) {
+                let res = await axios.get("https://icanhazdadjoke.com/",{
+                    headers:{
+                        Accept:"application/json"
+                    }
+                });
+                let newJoke = res.data.joke;
+                if(!this.seenJokes.has(newJoke)){
+                    jokes.push({text:newJoke,votes:0,id:uuidv4()})
+                } else {
+                    console.log("Duplicate joke found",newJoke);
                 }
-            });
-            jokes.push({text:res.data.joke,votes:0,id:uuidv4()})
+            }
+            // console.log(jokes);
+            // this.setState({ jokes : jokes })
+            this.setState(st => ({
+                jokes: [...st.jokes,...jokes],
+                loading:false
+            }),()=> window.localStorage.setItem("jokes",JSON.stringify(this.state.jokes)));
+        } catch(e){
+            alert(e);
+            this.setState({loading:false})
         }
-        // console.log(jokes);
-        // this.setState({ jokes : jokes })
-        this.setState(st => ({
-            jokes: [...st.jokes,...jokes],
-            loading:false
-        }),()=> window.localStorage.setItem("jokes",JSON.stringify(this.state.jokes)))
     }
     handleVote(id,delta) {
         this.setState(

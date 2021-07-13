@@ -50,7 +50,7 @@ export default class Joke extends Component {
                     {this.props.text}
                 </div>
                 <div className="Joke-smiley">
-                    <i className={this.getEmoji()} aria-role="presentation" aria-label="GRINNING FACE WITH ONE LARGE AND ONE SMALL EYE"></i>
+                    <i className={this.getEmoji()}></i>
                 </div>
             </div>
         )
